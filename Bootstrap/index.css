@@ -1,0 +1,228 @@
+html {
+    height: 100%;
+    box-sizing: border-box;
+  }
+  
+  
+  /* Jumbotron Styles */
+  
+  .navbar {
+    margin-bottom: 0 !important;
+  }
+  
+  .row.main-header {
+    padding:    25px;
+    margin-top: 50px;
+    padding-bottom: 45px;
+    background-color: #F0EBE5;
+    background-size:       cover;   
+    background-position: 25% 20%; 
+    border-radius: 6px;
+  }
+  
+  .jumbotron {
+    background: linear-gradient(90deg,#264653,#2a9d8f);
+    background-size:       cover;
+    background-position: 25% 20%; 
+    /*box-shadow: inset -140px 0px 90px 0px rgba(255, 255, 255, 0.70);*/
+    height: 500px;
+  }
+  
+  ul {
+    font-size: 16px;
+  }
+  
+  .form-inline {
+    float: right;
+    margin:  8px;
+  }
+  
+  /* ------------------*/
+  
+  h1 {
+    padding-top: 40px;
+    font-family: 'Playfair Display' !important;
+    font-weight: 700  !important;
+    font-size:   70px !important;
+    font-style:           italic;
+  }
+   
+  p.main-jumbotron-text {
+    margin-top:  26px;
+    font-size:   25px;
+    font-weight:  500 !important;
+    line-height:  1.4; 
+    margin-left: 10px;
+  }
+  
+  
+  h1, h2, p, .btn .btn-lg {
+    color: #14120C !important;
+  }
+  
+  hr {
+    border-color: #14120C !important;
+  }
+  
+  
+  input.form-control {
+    border-radius: 20px;
+    width: 200px;
+    margin: 0 20px 0 20px;
+    text-align: center;
+  }
+  
+  
+  
+  /*Main Body Styles */
+  
+  
+  h3 {
+    display: inline-block;
+    padding: 50px 43px 30px 43px; 
+  }
+  
+  .col-lg-6 p {
+    font-size:   18px;
+    text-align:  left;
+    padding: 0 43px 12px 43px;
+    line-height:  1.6;
+  }
+  
+  .col-lg-6.left, 
+  .col-lg-6.right {
+    padding-left:   48px;
+    padding-bottom: 40px;
+    height: 100%;
+  }  
+
+  .requirements-list {
+     margin: 20px 0px;
+  }
+  
+  .schedule {
+    margin-bottom: 15px;
+  }
+  
+  .tooltip {
+    width: 100px;
+  }
+  
+  .radio-inline {
+    margin-left: 41px;
+  }
+  
+  .first-form-question {
+     margin-left: 25px ;
+  }
+  
+  
+  /**/
+  
+  .btn-search {
+    border: 1px solid;
+    margin: 0px !important;
+  }
+  
+  .btn-group {
+    margin: 10px 0px 0px 43px;
+  }
+  
+  .btn-sample,
+  .btn-custom { 
+    color: #FFF; 
+    background-color: #65C9D8; 
+    margin: 20px 0px 0px 43px;
+  } 
+  
+  .btn-custom {
+    background-color: #45A5CC; 
+  }
+  
+   
+  .btn-custom:hover,
+  .btn-custom:active {
+    color: #FFF !important; 
+    background-color: #3B73A0; 
+    border-color: #FFFFFF; 
+  }
+  
+  .btn-sample:hover, 
+  .btn-sample:active { 
+    color: #FFF !important; 
+    background-color: #C6AD2B; 
+    border-color: #FFFFFF; 
+  } 
+  
+  .btn-sample:active, 
+  .btn-sample.active, 
+  .open .dropdown-toggle.btn-sample { 
+    background-image: none; 
+  } 
+   
+  .btn-sample.disabled, 
+  .btn-sample[disabled], 
+  fieldset[disabled] .btn-sample, 
+  .btn-sample.disabled:hover, 
+  .btn-sample[disabled]:hover, 
+  fieldset[disabled] .btn-sample:hover, 
+  .btn-sample.disabled:focus, 
+  .btn-sample[disabled]:focus, 
+  fieldset[disabled] .btn-sample:focus, 
+  .btn-sample.disabled:active, 
+  .btn-sample[disabled]:active, 
+  fieldset[disabled] .btn-sample:active, 
+  .btn-sample.disabled.active, 
+  .btn-sample[disabled].active, 
+  fieldset[disabled] .btn-sample.active { 
+    background-color: #97BAD8; 
+    border-color: #FFFFFF; 
+  } 
+   
+  .btn-sample .badge { 
+    color: #97BAD8; 
+    background-color: #F7F7F7; 
+  }
+  
+  .footer {
+    height: 50px;
+    background-color:    #45A5CC;
+    text-align:           center;
+    border-top-left-radius:  6px;
+    border-top-right-radius: 6px;
+  }
+  
+  /* Media Queries */
+  
+  
+  
+  @media screen and (max-width: 767px) {
+    
+  input.form-control {
+      width: 100%;
+      margin: 0 0 1vh 0;
+  }
+    
+  .btn-search {
+      width: 100%;
+  }
+     
+  p {
+      font-size: 2rem !important; 
+  }
+    
+  h3 {
+      display: inline-block;
+      padding: 50px 15px 30px 0px; 
+  }
+    
+  .col-lg-6 p {
+      font-size:   16px;
+      text-align:  left;
+      padding: 0 !important;
+      margin: 0 !important;
+      line-height:  1.4em;
+   }
+
+  }
+  
