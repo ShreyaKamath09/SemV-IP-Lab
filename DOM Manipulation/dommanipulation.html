@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DOM Manipulation</title>
+  <style>
+    .highlight {
+      color: blue;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <p class="intro">Hi, I am Shreya Kamath.</p>
+  </div>
+  
+  <button id="addButton">Add New Element</button>
+  
+  <script>
+    const container = document.getElementById("container");
+
+    // Creating a new element
+    const age = document.createElement("p");
+    age.textContent = "I am 19 years old.";
+    container.appendChild(age);
+
+    // Removing the initial paragraph
+    const initialPara = container.querySelector(".intro");
+    container.removeChild(initialPara);
+
+    // Replacing the paragraph
+    const replacedPara = document.createElement("p");
+    replacedPara.textContent = "I am Shreya Kamath and I'm 19 years old.";
+    container.replaceChild(replacedPara, age);
+
+    // CSS manipulation using querySelector
+    const replacedWithCSS = container.querySelector("p");
+    replacedWithCSS.classList.add("highlight");
+
+    // Adding background color to the paragraph
+    replacedWithCSS.style.backgroundColor = "lightyellow";
+
+    // Function to add a new element
+    function addNewElement() {
+      const newPara = document.createElement("p");
+      newPara.textContent = "I am a Third Year Engineering Student.";
+      container.appendChild(newPara);
+    }
+
+    // Adding event listener to the button
+    const addButton = document.getElementById("addButton");
+    addButton.addEventListener("click", addNewElement);
+  </script>
+</body>
+</html>
