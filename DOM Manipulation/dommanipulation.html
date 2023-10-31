@@ -6,6 +6,7 @@
     .highlight {
       color: blue;
       font-weight: bold;
+      background-color: #6de125;
     }
   </style>
 </head>
@@ -39,9 +40,9 @@
     replacedWithCSS.classList.add("highlight");
 
     // Adding background color to the paragraph
-    replacedWithCSS.style.backgroundColor = "lightyellow";
+    // replacedWithCSS.style.backgroundColor = "lightyellow";
 
-    // Function to add a new element
+    // Function to add and delete a new element
     function addNewElement() {
       const newPara = document.createElement("p");
       newPara.textContent = "I am a Third Year Engineering Student.";
@@ -61,8 +62,6 @@
     const delButton = document.getElementById("delButton");
     delButton.addEventListener("click", delElement);
 
-               
-          
   </script>
 </body>
 </html>
