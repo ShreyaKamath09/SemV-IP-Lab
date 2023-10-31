@@ -1,0 +1,58 @@
+import React, { createRef, useRef, forwardRef } from 'react';
+
+// Create React Ref
+const CreateRefExample = () => {
+  const myRef = createRef();
+
+  return <input ref={myRef} placeholder="Create Ref Example" />;
+};
+
+// Access Ref
+const AccessRefExample = () => {
+  const myRef = createRef();
+
+  const handleButtonClick = () => {
+    alert(myRef.current.value);
+  };
+
+  return (
+    <div>
+      <input ref={myRef} placeholder="Access Ref Example" />
+      <button onClick={handleButtonClick}>Alert Value</button>
+    </div>
+  );
+};
+
+// Forward Ref
+const CustomInput = forwardRef((props, ref) => {
+  return <input ref={ref} placeholder="Forward Ref Example" />;
+});
+
+// Callback Ref
+const CallbackRefExample = () => {
+  const myRef = useRef();
+
+  const setRef = (element) => {
+    myRef.current = element;
+    myRef.current.focus();
+  };
+
+  return (
+    <div>
+      <CustomInput ref={setRef} />
+    </div>
+  );
+};
+
+const App = () => (
+  <div>
+    <CreateRefExample />
+    <AccessRefExample />
+    <CallbackRefExample />
+  </div>
+);
+
+export default App;
+
+
+
