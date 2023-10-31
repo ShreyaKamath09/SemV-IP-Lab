@@ -1,0 +1,113 @@
+<!DOCTYPE>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Authentication Page</title>
+    <link href="https://fonts.googleapis.com/css?family=Fresca&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: white;
+            margin: 10% 20%;
+            color: black;
+            font-family: Arial, "sans serif";
+        }
+
+        h1 {
+            padding-bottom: 5%;
+            font-size: 40px;
+            font-family: 'Fresca', sans-serif;
+        }
+
+        header {
+            padding: 0;
+            margin: 0 15%;
+            color: white;
+        }
+
+        .CheckBox {
+            padding: 10%;
+            margin: 5%;
+            background-color: green;
+            text-align: center;
+            border-radius: 20px;
+        }
+
+        input,
+        button {
+            margin: 2%;
+        }
+
+        #rules {
+            padding-top: 2%;
+            display: none;
+        }
+
+        #rules ul li {
+            text-align: left;
+        }
+
+        #error {
+            color: red;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <p>- Actually the right username is SuperBob and passsword 12RobotoLove -</p>
+    </header>
+    <section class="CheckBox">
+        <h1>Authentication yourself</h1>
+        <form name="authentication" id="authentication" class="authentication">
+            <label for="username">Enter your username :</label>
+            <br>
+            <input type="text" name="username" id="username" minlength="3" maxlenth="15" pattern="[a-zA-Z0-9]+"
+                required>
+            <br>
+            <label for="password">Enter your password :</label>
+            <br>
+            <input type="password" name="password" id="password" minlength="8" maxlength="15" pattern="[a-zA-Z0-9]+"
+                required>
+            <br>
+            <input id="sub" type="submit" value="Submit" onclick="Verify();"></input>
+            <button id="rule" type="button" onclick="Show('rules');">Rules</button>
+        </form>
+        <div id="rules">
+            <ul>
+                <li>Username must have between 3 and 15 caracters</li>
+                <li>Password must have between 8 and 15 caracters</li>
+                <li>Username and Password required</li>
+                <li>Use only numbers and letters</li>
+            </ul>
+        </div>
+    </section>
+    <script>
+        //Rules button
+        function Show(id) {
+            if (document.getElementById(id).style.display == 'none') {
+                document.getElementById(id).style.display = 'block';
+            }
+            else {
+                document.getElementById(id).style.display = 'none';
+            }
+        };
+
+        //Submit Button
+        function Verify() {
+            var userRef = "SuperBob";
+            var passRef = "12RobotoLove";
+
+            var user = document.getElementById("username").value;
+            var pass = document.getElementById("password").value;
+            if (user == userRef && pass == passRef) {
+                alert("Login Successful")
+            } else {
+                alert("It's seem you make a mistake...")
+            }
+        };
+    </script>
+</body>
+
+</html>
