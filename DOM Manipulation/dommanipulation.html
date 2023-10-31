@@ -15,7 +15,8 @@
   </div>
   
   <button id="addButton">Add New Element</button>
-  
+  <button id="delButton">Delete Element</button>
+
   <script>
     const container = document.getElementById("container");
 
@@ -28,7 +29,7 @@
     const initialPara = container.querySelector(".intro");
     container.removeChild(initialPara);
 
-    // Replacing the paragraph
+    // // Replacing the paragraph
     const replacedPara = document.createElement("p");
     replacedPara.textContent = "I am Shreya Kamath and I'm 19 years old.";
     container.replaceChild(replacedPara, age);
@@ -46,10 +47,22 @@
       newPara.textContent = "I am a Third Year Engineering Student.";
       container.appendChild(newPara);
     }
-
+    function delElement() {
+      const lastPara = container.querySelector("p:last-child");
+      if (lastPara) {
+        container.removeChild(lastPara);
+      }
+    }
     // Adding event listener to the button
     const addButton = document.getElementById("addButton");
     addButton.addEventListener("click", addNewElement);
+
+    // Create a delete button
+    const delButton = document.getElementById("delButton");
+    delButton.addEventListener("click", delElement);
+
+               
+          
   </script>
 </body>
 </html>
