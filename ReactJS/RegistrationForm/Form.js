@@ -1,105 +1,147 @@
 import React, { Component } from 'react';
 
-class LoginScreen extends Component {
+
+class RegistrationForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: '',
-      password: '',
-      isLoggedIn: false,
-      showPopup: false, 
+      name: '',
+      email: '',
+      gender: 'male',
+      subscribe: false,
+      country: 'usa',
     };
   }
 
-  handleUsernameChange = (event) => {
-    const input = event.target.value.replace(/[^A-Za-z]/g, ''); 
-    this.setState({ username: input });
+
+  handleChange = (event) => {
+    const { name, value, type, checked } = event.target;
+
+
+    this.setState((prevState) => ({
+      [name]: type === 'checkbox' ? checked : value,
+    }));
   };
 
-  handlePasswordChange = (event) => {
-    this.setState({ password: event.target.value });
-  };
-
-  handleUsernameKeyPress = (event) => {
-    const key = event.key;
-    if (!/[a-zA-Z]/.test(key)) {
-      event.preventDefault();
-      this.setState({ showPopup: true }); 
-      setTimeout(() => {
-        this.setState({ showPopup: true }); 
-      }, 1500);
-    }
-  };
 
   handleSubmit = (event) => {
     event.preventDefault();
-    
-    if (this.state.username === 'shreya' && this.state.password === 'sk0912') {
-      this.setState({ isLoggedIn: true });
+    const { name, email, gender, subscribe, country } = this.state;
+    const userDetails = `Name: ${name}\nEmail: ${email}\nGender: ${gender}\nRemember me: ${subscribe ? 'Yes' : 'No'}\nCountry: ${country}`;
+    alert('Form submitted with the following details:\n\n' + userDetails);
+  };  
+
+
+  handleReset = () => {
+    this.setState({
+      name: '',
+      email: '',
+      gender: 'male',
+      subscribe: false,
+      country: 'default',
+    });
+  };
+
+
+  handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      this.handleSubmit(event);
+    } else if (event.key === 'Escape') {
+      this.handleReset();
     }
   };
 
-  reset = (event) => {
-    this.setState({username:"",password:"",address:""})
-  }
 
   render() {
-    if (this.state.isLoggedIn) {
-      return <div>Welcome, {this.state.username}!</div>;
-    } else {
-      return (
-        <form onSubmit={this.handleSubmit}>
-          <div>
-            <label>Name:</label>
+    return (
+      <div>
+        <h1>Registration Form</h1>
+        <form>
+          <label>
+            Name:
             <input
               type="text"
-              value={this.state.username}
-              onChange={this.handleUsernameChange}
-              onKeyPress={this.handleUsernameKeyPress}
+              name="name"
+              value={this.state.name}
+              onChange={this.handleChange}
             />
-            {this.state.showPopup && <div className="popup">Enter only Alphabets.</div>}
-          </div>
-          <div>
-            <label>Age</label>
+          </label>
+          <br />
+          <label>
+            Email:
             <input
-              type="number"
-              value={this.state.password}
-              onChange={this.handlePasswordChange}
+              type="email"
+              name="email"
+              value={this.state.email}
+              onChange={this.handleChange}
             />
-          </div>
-          <div>
-            <label>Address</label>
+          </label>
+          <br />
+          <label>
+            Gender:
             <input
-              type="text"
-             value={this.state.address}
-              //onChange={this.handlePasswordChange}
-            />
-          </div>
-          <div>
-            <label>Year:  </label>
-            <label>FE</label>
+              type="radio"
+              name="gender"
+              value="male"
+              checked={this.state.gender === 'male'}
+              onChange={this.handleChange}
+            />{' '}
+            Male
+            <input
+              type="radio"
+              name="gender"
+              value="female"
+              checked={this.state.gender === 'female'}
+              onChange={this.handleChange}
+            />{' '}
+            Female
+            <input
+              type="radio"
+              name="gender"
+              value="other"
+              checked={this.state.gender === 'other'}
+              onChange={this.handleChange}
+            />{' '}
+            Other
+          </label>
+          <br />
+          <label>
+            Remember me
             <input
               type="checkbox"
+              name="subscribe"
+              checked={this.state.subscribe}
+              onChange={this.handleChange}
             />
-            <label>SE</label>
-            <input
-              type="checkbox"
-            />
-            <label>TE</label>
-            <input
-              type="checkbox"
-            />
-            <label>BE</label>
-            <input
-              type="checkbox"
-            />
-          </div>
-          <button type="submit">Submit</button>
-          <button onClick={this.reset}>Reset</button>
+          </label>
+          <br />
+          <label>
+            Country:
+            <select
+              name="country"
+              value={this.state.country}
+              onChange={this.handleChange}
+            >
+              <option value="default">Default</option>
+              <option value="india">India</option>
+              <option value="usa">USA</option>
+              <option value="canada">Canada</option>
+              <option value="uk">UK</option>
+            </select>
+          </label>
+          <br />
+          <button type="submit" onClick={this.handleSubmit}>
+            Submit
+          </button>
+          <button type="button" onClick={this.handleReset}>
+            Reset
+          </button>
         </form>
-      );
-    }
+        <p>Press Enter to submit.</p>
+      </div>
+    );
   }
 }
 
-export default LoginScreen;
+
+export default RegistrationForm;
