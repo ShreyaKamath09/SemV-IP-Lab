@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Fact Fetcher</title>
+</head>
+<body>
+    <h1>Random Fact</h1>
+    <p id="fact">Loading...</p>
+
+    <script>
+        console.log("Promises in JS:");
+        function fetchRandomFact() {
+            return new Promise((resolve, reject) => {
+                fetch('https://uselessfacts.jsph.pl/random.json?language=en')
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error('Error!');
+                    }
+                    return response.json();
+                })
+                .then((data) => {
+                    resolve(data.text);
+                })
+                .catch((error) => {
+                    reject(error);
+                });
+            });
+        }
+
+        fetchRandomFact()
+        .then((fact) => {
+            const factElement = document.getElementById('fact');
+            factElement.textContent = fact;
+        })
+        .catch((error) => {
+            const factElement = document.getElementById('fact');
+            factElement.textContent = 'Error fetching fact: ' + error;
+        });
+    </script>
+</body>
+</html>
